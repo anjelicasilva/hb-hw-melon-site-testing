@@ -18,7 +18,7 @@ class ShippingTestCase(unittest.TestCase):
         """Test shipping for Alaska."""
 
         ak_shipping = shipping.calculate_shipping('AK')
-        self.assertEqual(ak_shipping, 0)
+        self.assertEqual(ak_shipping, 20)
 
     def test_indiana(self):
         """Test shipping for Indiana."""
@@ -41,7 +41,7 @@ class MelonSiteIntegrationTestCase(unittest.TestCase):
 
         result = self.client.get('/')
         self.assertEqual(result.status_code, 200)
-        self.assertIn(b'<h1>Welcome to Squysh!</h1>', result.data)
+        self.assertIn(b'<h1>Welcome to Ubermelon!</h1>', result.data)
 
     def test_melon_order_form(self):
         """Test the display of the order form."""
@@ -74,7 +74,7 @@ class MelonSiteIntegrationTestCase(unittest.TestCase):
 
         result = self.client.get('/melon/alib')
         self.assertEqual(result.status_code, 200)
-        self.assertIn(b'Crenshaw', result.data)
+        self.assertIn(b'Ali Baba Watermelon', result.data)
 
 
 if __name__ == '__main__':
